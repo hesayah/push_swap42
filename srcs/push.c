@@ -6,13 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 14:50:07 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/23 16:43:28 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/07 09:03:50 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static	void	lst_delet_first(t_lst **lst, t_data *data, int code)
+/*static	void	lst_delet_first(t_lst **lst, t_data *data, int code)
 {
 	t_lst	*ptr;
 
@@ -56,15 +56,15 @@ static void	push(t_lst **lst_one, t_lst **lst_two, t_data *data, int code)
 	lst_delet_first(lst_two, data, code);
 }
 
-void	pa(t_data *data)
+void	pa(t_data **data)
 {
-	if (data->b_pile)
-		push(&data->a_pile, &data->b_pile, data, 0);
+	if (*data->b_pile)
+		push(data->a_pile, &data->b_pile, data, 0);
 
 }
 
-void	pb(t_data *data)
+void	pb(t_data **data)
 {
-	if (data->a_pile)
-		push(&data->b_pile, &data->a_pile, data, 1);
-}
+	if (*data->a_pile)
+		push(data->b_pile, &data->a_pile, data, 1);
+}*/

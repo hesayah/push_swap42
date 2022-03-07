@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/23 16:31:56 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/07 08:14:30 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void		init_data(t_data *data, char **args)
 	i = 0;
 	data->a_pile = NULL;
 	data->b_pile = NULL;
-	data->previous = NULL;
 	data->args = ++args;
 	data->len_a = 0;
 	data->len_b = 0;

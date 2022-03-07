@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 23:45:15 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/11 11:31:16 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/07 04:46:06 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	run(t_data *data)
 {
-	if (check_order(&(data->a_pile)))
-		return ;
-	
+	/*if (check_order(&(data->a_pile)))
+		return ;*/
 }
 
 /*void	run(t_data *data)

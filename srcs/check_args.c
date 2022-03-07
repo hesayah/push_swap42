@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 02:47:40 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/23 16:36:26 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/07 08:37:06 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,15 @@ static int      check_dup(t_data *data)
 static int     add_to_pile(t_data *data, char *arg)
 {
     long    value;
-    t_lst   *tmp;
+    t_lst   *tmp_prev;
 
     value = ft_atoi(arg);
     if (value < INT_MIN || value > INT_MAX)
-        return (0);
-    ft_lstadd_back(&(data->a_pile), ft_lstnew((int)value, data->previous));
-    tmp = data->a_pile;
-    while (tmp->next)
-        tmp->next;
-    data->previous = tmp;
+        return (0); 
+    tmp_prev = data->a_pile;
+    while (tmp_prev->next)
+        tmp_prev->next;
+    ft_lstadd_back(&(data->a_pile), ft_lstnew((int)value, tmp_prev));
     data->len_a++;
     return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 00:39:24 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/11 12:32:50 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/07 09:02:42 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	rotate_down(t_lst **lst_pile)
+/*static void	rotate_down(t_lst **lst_pile)
 {
 	int		last_value;
 	t_lst		*tmp;
@@ -33,24 +33,24 @@ static void	rotate_down(t_lst **lst_pile)
 	(*lst_pile)->value = last_value;
 }
 
-void	rra(t_data *data)
+void	rra(t_data **data)
 {
 	if (!data->a_pile)
 		return ;
 	rotate_down(data->a_pile);
 }
 
-void	rrb(t_data *data)
+void	rrb(t_data **data)
 {
 	if (!data->b_pile)
 		return ;
 	rotate_down(data->b_pile);
 }
 
-void	rrr(t_data *data)
+void	rrr(t_data **data)
 {
 	if (!data->a_pile || !data->b_pile)
 		return ;
 	rotate_down(data->a_pile);
 	rotate_down(data->b_pile);
-}
+}*/

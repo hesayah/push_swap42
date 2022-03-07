@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/23 16:19:35 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/07 08:46:22 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,28 @@
 #include "../libft/libft.h"
 
 typedef struct	s_data
-{
-	t_lst		*a_pile;
-	t_lst		*b_pile;
-	t_lst		*previous;
+{	
+	t_lst		**a_pile;
+	t_lst		**b_pile;
 	char		**args;
 	int			len_a;
 	int			len_b;
 }				t_data;
 
 int				check_arg(t_data *data);
-void			run(t_data *data);
+/*void			run(t_data *data);
 int				check_order(t_lst **lst_pile);
-/*void			pa(t_data *data);
-void			pb(t_data *data);*/
-void		    sa(t_data *data);
-/*void			sb(t_data *data);
-void			ss(t_data *data);
-void			ra(t_data *data);
-void			rb(t_data *data);
-void			rr(t_data *data);
-void			rra(t_data *data);
-void			rrb(t_data *data);
-void			rrr(t_data *data);*/
+void			pa(t_lst *a_pile);
+void			pb(t_lst *b_pile);
+void		    sa(t_lst *a_pile);
+void			sb(t_lst *b_pile);
+void			ss(t_piles *pile, t_lst *b_pile);
+void			ra(t_lst *a_pile);
+void			rb(t_lst *b_pile);
+void			rr(t_piles *pile, t_lst *b_pile);
+void			rra(t_lst *a_pile);
+void			rrb(t_lst *b_pile);
+void			rrr(t_lst *a_pile, t_lst *b_pile);*/
 void			clean_up(t_data *data);
 
 #endif
