@@ -6,13 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:23:30 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/11 11:26:10 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/10 22:16:11 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		check_order(t_lst **lst_pile)
+/*int		check_order(t_lst **lst_pile)
 {
 	t_lst	*tmp_one;
 	int		value;
@@ -27,4 +27,4 @@ int		check_order(t_lst **lst_pile)
 		value = tmp_one->value;
 	}
 	return (1);
-}
+}*/

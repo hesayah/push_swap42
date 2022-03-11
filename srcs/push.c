@@ -6,65 +6,56 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 14:50:07 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/07 09:03:50 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 01:20:40 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*static	void	lst_delet_first(t_lst **lst, t_data *data, int code)
+static	void	lst_delet_first(t_lst **lst, int code, t_data *data)
 {
 	t_lst	*ptr;
 
-	ptr = (*lst);
-	if (ptr->next)
-	{	
-		if (code)
-			data->a_pile = ptr->next;
-		else
-			data->b_pile = ptr->next;
+	if ((*lst)->next)
+	{
+		ptr = *lst;
+		*lst = (*lst)->next;
 		free(ptr);
 	}
 	else
 	{
-		free(ptr);
-		if (code)
-			data->a_pile = NULL;
-		else
+		free(*lst);
+		if (!code)
 			data->b_pile = NULL;
+		else
+			data->a_pile = NULL;
 	}
 }
 
-static void	push(t_lst **lst_one, t_lst **lst_two, t_data *data, int code)
+static void	push(t_lst **lst_one, t_lst **lst_two, int code, t_data *data)
 {
 	t_lst		*ptr_one;
 	t_lst		*ptr_two;
-	t_lst		*ptr_tmp;
+	t_lst		*tmp;
 	int			value;
 	
-	if (!lst_two)
-		return ;
 	ptr_two = *lst_two;
 	value = ptr_two->value;
-	ptr_tmp = ft_lstnew(value, NULL);
-	ft_lstadd_front(lst_one, ptr_tmp);
-	ptr_one = *lst_one;
-	ptr_one->previous = NULL;
-	while (ptr_one->next)
-		ptr_one = ptr_one->next;
-	ptr_one->next = NULL;
-	lst_delet_first(lst_two, data, code);
+	tmp = ft_lstnew(value);
+	ft_lstadd_front(lst_one, tmp);
+	lst_delet_first(lst_two, code, data);
 }
 
-void	pa(t_data **data)
+void	pa(t_data *data)
 {
-	if (*data->b_pile)
-		push(data->a_pile, &data->b_pile, data, 0);
-
+	if (data->b_pile != NULL)
+		push(&data->a_pile, &data->b_pile, 0, data);
+	//ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_data **data)
+void	pb(t_data *data)
 {
-	if (*data->a_pile)
-		push(data->b_pile, &data->a_pile, data, 1);
-}*/
+	if (data->a_pile != NULL)
+		push(&data->b_pile, &data->a_pile, 1, data);
+	//ft_putstr_fd("pb\n", 1);
+}

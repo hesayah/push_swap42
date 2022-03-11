@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 18:20:38 by hesayah           #+#    #+#             */
-/*   Updated: 2021/12/11 02:56:22 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/10 23:11:06 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_lst_free(t_lst **lst_pile)
 void	clean_up(t_data *data)
 {
 	if (data->a_pile)
-		ft_lst_free(&(data->a_pile));
+		ft_lst_free(&data->a_pile);
 	if (data->b_pile)
-		ft_lst_free(&(data->b_pile));
+		ft_lst_free(&data->b_pile);
 }

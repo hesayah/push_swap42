@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:15:41 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/07 08:34:01 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/10 18:14:19 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void				ft_lstiter(t_lst *lst, void (*f)(int));
 t_lst				*ft_lstlast(t_lst *lst);
 t_lst				*ft_lstmap(t_lst *lst, void *(*f)(int),
 						void (*del)(int));
-t_lst	*ft_lstnew(int value, t_lst *previous);
+t_lst				*ft_lstnew(int value);
 int					ft_lstsize(t_lst *lst);
 int					ft_c_in_str(char c, char *s2);
 

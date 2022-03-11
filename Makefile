@@ -6,7 +6,7 @@
 #    By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 10:06:32 by hesayah           #+#    #+#              #
-#    Updated: 2021/12/23 16:18:13 by hesayah          ###   ########.fr        #
+#    Updated: 2022/03/10 23:52:39 by hesayah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ LIB = libft/libft.a
 
 CC = gcc
 
-FLAGS = -Wall -Werror -Wextra -g3 -fsanitize=leak
+FLAGS = -Wall -Werror -Wextra -g #-fsanitize=address
 
 
 
