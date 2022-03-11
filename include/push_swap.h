@@ -6,15 +6,15 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 11:28:58 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:15:26 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "limits.h"
-#include "../libft/libft.h"
+# include "limits.h"
+# include "../libft/libft.h"
 
 typedef struct	s_data
 {	
@@ -33,7 +33,7 @@ int				check_order(t_lst **lst_pile);
 void			print_pile(t_data *data);
 void			pa(t_data *data);
 void			pb(t_data *data);
-void		    sa(t_data *data);
+void			sa(t_data *data);
 void			sb(t_data *data);
 void			ss(t_data *data);
 void			ra(t_data *data);

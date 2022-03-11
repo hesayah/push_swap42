@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 18:20:38 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 03:29:22 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:16:16 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_lst_free(t_lst **lst_pile)
 	t_lst		*lst;
 	t_lst		*tmp;
 
-	//printf("clean up entree == [%p]\n", lst_pile);
 	lst = *lst_pile;
 	while (lst)
 	{	
@@ -28,7 +27,6 @@ void	ft_lst_free(t_lst **lst_pile)
 		free(tmp);
 		tmp = NULL;
 	}
-	//printf("clean up sortie == [%p]\n", lst_pile);
 }
 
 void	clean_up(t_data *data)

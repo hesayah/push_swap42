@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 12:24:28 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 11:45:17 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:18:36 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	sb(t_data *data)
 
 void	ss(t_data *data)
 {
-	if (data->a_pile && data->a_pile->next && data->b_pile && data->b_pile->next)
+	if (data->a_pile && data->a_pile->next
+		&& data->b_pile && data->b_pile->next)
 	{
 		sa(data);
 		sb(data);

@@ -6,19 +6,17 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 00:39:43 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 11:32:58 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:16:32 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//finish
-
 static void	rotate_up(t_lst **lst_pile)
 {
 	t_lst	*tmp_lst;
 	int		first_value;
-	
+
 	if (!(*lst_pile)->next)
 		return ;
 	tmp_lst = (*lst_pile);

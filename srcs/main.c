@@ -6,13 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 11:33:45 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:22:30 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int		init_work(t_data *data, char **args)
+static int	init_work(t_data *data, char **args)
 {
 	int		i;
 	int		value;
@@ -35,10 +35,10 @@ static int		init_work(t_data *data, char **args)
 	return (1);
 }
 
-static void		init_data(t_data *data)
+static void	init_data(t_data *data)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	data->a_pile = NULL;
 	data->b_pile = NULL;
@@ -47,12 +47,12 @@ static void		init_data(t_data *data)
 	data->malloc_error = 0;
 }
 
-void		print_pile(t_data *data)
+void	print_pile(t_data *data)
 {
-	t_lst *tmp_a;
-	t_lst *tmp_b;
+	t_lst	*tmp_a;
+	t_lst	*tmp_b;
 
-	if (data->a_pile) 
+	if (data->a_pile)
 		tmp_a = data->a_pile;
 	else
 		tmp_a = NULL;
@@ -64,13 +64,14 @@ void		print_pile(t_data *data)
 	while (tmp_a || tmp_b)
 	{
 		if (!tmp_a && !tmp_b)
-			break;
+			break ;
 		else if (tmp_a && !tmp_b)
 			printf("[%i]-------------- | ----------------[]\n", tmp_a->value);
 		else if (!tmp_a && tmp_b)
 			printf("[]---------------  |  --------------[%i]\n", tmp_b->value);
 		else if (tmp_a && tmp_b)
-			printf("[%i]-------------  | ---------------[%i]\n", tmp_a->value, tmp_b->value);
+			printf("[%i]-------------  | ---------------[%i]\n",
+				tmp_a->value, tmp_b->value);
 		if (tmp_a)	
 			tmp_a = tmp_a->next;
 		if (tmp_b)
@@ -86,7 +87,7 @@ static int	free_args(char ***args, t_data *data)
 	return (0);
 }
 
-int			main(int argc, char **args)
+int	main(int argc, char **args)
 {
 	t_data	data;
 	char	**new_args;
@@ -114,8 +115,6 @@ int			main(int argc, char **args)
 	ft_putstr_fd("ENTREE\n", 1);
 	print_pile(&data);
 	run(&data);
-	//rra(&data);
-	//ra(&data); 
 	ft_putstr_fd("SORTIE\n", 1);
 	print_pile(&data);
 	clean_up(&data);

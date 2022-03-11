@@ -6,13 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:44:13 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 13:45:06 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:23:29 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		check_order(t_lst **lst_pile)
+int	check_order(t_lst **lst_pile)
 {
 	t_lst	*tmp_one;
 	int		value;
@@ -35,7 +35,6 @@ int	get_new_top(t_lst **lst)
 
 	tmp = *lst;
 	return (tmp->value);
-	
 }
 
 int	run(t_data *data)
@@ -50,7 +49,6 @@ int	run(t_data *data)
 	while (!check_order(&data->a_pile))
 	{
 		j = -1;
-	
 		while (++j < max)
 		{
 			new_top = get_new_top(&data->a_pile);
