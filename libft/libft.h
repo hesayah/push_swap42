@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:15:41 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/10 18:14:19 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 03:40:57 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ typedef struct s_lst
 {
 	int				value;
 	struct s_lst	*next;
-	struct s_lst	*previous;
-	
 }					t_lst;
 
 char				*ft_char_to_str(char c);

@@ -6,11 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 02:47:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/10 23:10:42 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/11 03:29:35 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+//finish
 
 static int	check_arg_value(char *arg)
 {
