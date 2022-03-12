@@ -6,13 +6,11 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 18:20:38 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 14:16:16 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 04:38:22 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-//finish
 
 void	ft_lst_free(t_lst **lst_pile)
 {

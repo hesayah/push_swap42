@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 14:22:30 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 05:05:26 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static int	init_work(t_data *data, char **args)
 		data->len_a++;
 		i++;
 	}
+	if (!get_median(data, args))
+		return (0);
 	return (1);
 }
 
@@ -43,6 +45,7 @@ static void	init_data(t_data *data)
 	data->a_pile = NULL;
 	data->b_pile = NULL;
 	data->len_a = 0;
+	data->max_value = 0;
 	data->len_b = 0;
 	data->malloc_error = 0;
 }

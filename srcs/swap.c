@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 12:24:28 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 14:18:36 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 03:50:18 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sa(t_data *data)
 {
 	if (data->a_pile && data->a_pile->next)
 	{
-		swap(data->a_pile);
+		swap(&data->a_pile);
 		ft_putstr_fd("sa\n", 1);
 	}
 }
@@ -39,7 +39,7 @@ void	sb(t_data *data)
 {
 	if (data->b_pile && data->b_pile->next)
 	{
-		swap(data->b_pile);
+		swap(&data->b_pile);
 		ft_putstr_fd("sb\n", 1);
 	}
 }

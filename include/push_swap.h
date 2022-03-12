@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 14:15:26 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 05:04:59 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ typedef struct	s_data
 	t_lst		*b_pile;
 	int			len_a;
 	int			len_b;
-	int			median_a;
-	int			median_b;
+	int			max_value;
+	int			median;
 	int			malloc_error;
 }				t_data;
 
 int				check_args(char **args);
+int				get_median(t_data *data, char **args);
+void			pre_working(t_data *data);
 int				run(t_data *data);
 int				check_order(t_lst **lst_pile);
 void			print_pile(t_data *data);

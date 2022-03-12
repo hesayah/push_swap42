@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:44:13 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 14:23:29 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 05:08:22 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,16 @@ int	get_new_top(t_lst **lst)
 
 int	run(t_data *data)
 {
-	int	i;
+	/*int	i;
 	int	j;
 	int	max;
 	int	new_top;
 
 	i = 0;
-	max = data->len_a -1;
-	while (!check_order(&data->a_pile))
+	max = data->len_a -1;*/
+	if (check_order(&data->a_pile))
+		return (0);
+	/*while (!check_order(&data->a_pile))
 	{
 		j = -1;
 		while (++j < max)
@@ -61,7 +63,8 @@ int	run(t_data *data)
 			pa(data);
 		i++;
 		if (i % 10000 == 0)
-			print_pile(&data->a_pile);
-	}
+			print_pile(data);
+	}*/
+	pre_working(data);
 	return (0);
 }

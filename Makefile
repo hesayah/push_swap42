@@ -6,14 +6,15 @@
 #    By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 10:06:32 by hesayah           #+#    #+#              #
-#    Updated: 2022/03/11 07:46:05 by hesayah          ###   ########.fr        #
+#    Updated: 2022/03/12 03:50:59 by hesayah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	push_swap
 
 SRCS =	srcs/main.c \
-		srcs/check_args.c\
+		srcs/check_args.c \
+		srcs/algo_utils.c \
 		srcs/run.c \
 		srcs/swap.c \
 		srcs/push.c \
