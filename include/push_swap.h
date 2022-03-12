@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 05:04:59 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 08:45:24 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int				check_args(char **args);
 int				get_median(t_data *data, char **args);
 void			pre_working(t_data *data);
 int				run(t_data *data);
-int				check_order(t_lst **lst_pile);
+int				check_order_c(t_lst **lst_pile);
+int				check_order_d(t_lst	**lst_pile);
 void			print_pile(t_data *data);
 void			pa(t_data *data);
 void			pb(t_data *data);

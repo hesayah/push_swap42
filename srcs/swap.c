@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 12:24:28 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 03:50:18 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 07:31:05 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 static void	swap(t_lst **lst_pile)
 {
-	t_lst		*ptr_first;
-	int			value;
-	int			value_next;
+	int tmp_value;
 
-	ptr_first = (*lst_pile);
-	value = ptr_first->value;
-	*lst_pile = ptr_first->next;
-	value_next = (*lst_pile)->value;
-	(*lst_pile)->value = value;
-	ptr_first->value = value_next;
+	tmp_value = (*lst_pile)->value;
+	(*lst_pile)->value = (*lst_pile)->next->value;
+	(*lst_pile)->next->value = tmp_value;
 }
 
 void	sa(t_data *data)

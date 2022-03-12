@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 05:05:26 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 08:48:12 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ static int	free_args(char ***args, t_data *data)
 {
 	if (args)
 		ft_free(*args);
-	clean_up(data);
+	if (data)
+		clean_up(data);
 	return (0);
 }
 
@@ -101,25 +102,30 @@ int	main(int argc, char **args)
 	else if (argc == 2)
 	{
 		new_args = ft_split(args[1], " ");
+		if (new_args[0] == NULL)
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (free_args(&new_args, NULL));
+		}
 		if (!check_args(new_args))
-			return (free_args(&args, &data));
+			return (free_args(&new_args, NULL));
 		if (!init_work(&data, new_args))
-			return (free_args(&args, &data));
+			return (free_args(&new_args, &data));
 		ft_free(new_args);
 	}
-	else
+	else 
 	{
 		new_args = ++args;
 		if (!check_args(new_args))
-			return (0);
+			return (free_args(NULL, NULL));
 		if (!init_work(&data, new_args))
 			return (free_args(NULL, &data));
 	}
-	ft_putstr_fd("ENTREE\n", 1);
-	print_pile(&data);
+	//ft_putstr_fd("ENTREE\n", 1);
+	//print_pile(&data);
 	run(&data);
-	ft_putstr_fd("SORTIE\n", 1);
-	print_pile(&data);
+	//ft_putstr_fd("SORTIE\n", 1);
+	//print_pile(&data);
 	clean_up(&data);
 	return (0);
 }

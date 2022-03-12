@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:36:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 05:20:21 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 09:06:56 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	get_median(t_data *data, char **args)
 
 void	pre_working(t_data *data)
 {
-
 	while (data->len_a > 1)
 	{
 		if (data->a_pile->value >= data->max_value)
@@ -71,7 +70,11 @@ void	pre_working(t_data *data)
 			pb(data);
 			if (data->b_pile->value <= data->median)
 				rb(data);
+			if (data->b_pile->next)
+			{
+				if ((int)(data->b_pile->value) > (int)(data->b_pile->next->value))
+					sb(data);
+			}
 		}
 	}
-	//print_pile(data);
 }

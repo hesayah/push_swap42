@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 02:47:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 14:18:51 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/12 05:48:30 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ int	check_args(char **args)
 	{
 		if (!check_arg_value(args[i]))
 			return (0);
+		if (args[i][0] == '\0')
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (0);
+		}
 		j = i;
 		value_one = ft_atoi(args[i]);
 		while (args[++j])
