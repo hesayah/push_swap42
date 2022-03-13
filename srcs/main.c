@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/13 19:04:43 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/13 20:19:51 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,5 @@ int	main(int argc, char **args)
 		if (!init_work(&data, new_args))
 			return (free_args(NULL, &data));
 	}
-	//ft_putstr_fd("ENTREE\n", 1);
-	//print_pile(&data);
-	run(&data);
-	//ft_putstr_fd("SORTIE\n", 1);
-	//print_pile(&data);
-	clean_up(&data);
-	return (0);
+	return (run(&data));
 }

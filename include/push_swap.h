@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/13 19:02:59 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/13 20:18:58 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void			rr(t_data *data);
 void			rra(t_data *data);
 void			rrb(t_data *data);
 void			rrr(t_data *data);
-void			clean_up(t_data *data);
+int				clean_up(t_data *data);
 
 #endif
