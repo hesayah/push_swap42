@@ -6,75 +6,166 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:36:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 09:06:56 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/13 19:02:57 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	sort_tab(int **tab, int len)
+/*int	last_little_value(t_data *data, t_lst **lst_pile, int value)
 {
-	int i;
-	int	j;
-	int value;
+	t_lst 	*ptr;
+	t_lst	*lst;
+	int		pairing;
 
-	i = -1;
-	while (++i < len)
+	ptr = *lst_pile;
+	pairing = data->min_value;
+	while (ptr)
 	{
-		j = i;
-		while (++j < len)
+		lst = ptr->next;
+		while (lst)
 		{
-			if ((*tab)[i] > (*tab)[j])
+			if (lst->value < value)
 			{
-				value = (*tab)[i];
-				(*tab)[i] = (*tab)[j];
-				(*tab)[j] = value;
+				if (lst->value > pairing)
+					pairing = lst->value;
 			}
+			lst = lst->next; 
 		}
+		ptr = ptr->next;
 	}
+	if (pairing == data->min_value)
+		pairing = value;
+	return (pairing);
+}*/
+
+int	first_bigger_value(t_data *data, t_lst **lst_pile, int value)
+{
+	t_lst 	*ptr;
+	int		pairing;
+
+	pairing = data->max_value;
+	ptr = *lst_pile;
+	while (ptr)
+	{
+		if (ptr->value > value)
+		{
+			if (ptr->value < pairing)
+				pairing = ptr->value;
+		}
+		ptr = ptr->next; 
+	}
+	if (pairing == data->max_value)
+		pairing = value;
+	return (pairing);
 }
 
-int	get_median(t_data *data, char **args)
+int	nb_of_strokes(t_data *data, t_lst **lst_pile, int value)
 {
-	int	i;
-	int *tmp_tab;
+	int		nb;
+	t_lst	*lst;
 
-	tmp_tab = malloc(sizeof(int) * data->len_a);
-	if (!tmp_tab)
+	nb = 0;
+	lst = *lst_pile;
+	if (!lst->next)
 		return (0);
-	i = 0;
-	while (i < data->len_a)
+	while (lst)
 	{
-		tmp_tab[i] = atoi(args[i]);
-		i++;
+		if (lst->value == value)
+			break;
+		lst = lst->next;
+		nb++;
 	}
-	sort_tab(&tmp_tab, data->len_a);
-	if (data->len_a % 2 == 0)
-		data->median = tmp_tab[((data->len_a - 1) / 2)];
-	else
-		data->median = (int)((tmp_tab[(int)(data->len_a / 2)]
-			+ tmp_tab[(int)((data->len_a + 1) / 2)]) / 2);
-	data->max_value = tmp_tab[data->len_a - 1];
-	free(tmp_tab);
-	return (1);
+	return (nb);
 }
 
-void	pre_working(t_data *data)
+int	get_the_best_pair(t_data *data)
 {
-	while (data->len_a > 1)
+	int		pos_a;
+	int		pos_b;
+	int		tmp_pos;
+	int		best_move[2];
+	t_lst	*ptr_b;
+
+	ptr_b = data->b_pile;
+	pos_b = 0;
+	best_move[0] = data->len_b;
+	best_move[1] = ptr_b->value;
+	while (ptr_b)
 	{
-		if (data->a_pile->value >= data->max_value)
-			ra(data);
+		pos_a = nb_of_strokes(data, &data->a_pile,
+		first_bigger_value(data, &data->a_pile, ptr_b->value));
+		if (pos_a > data->len_a / 2)
+			pos_a = data->len_a - pos_a;
+		if (pos_b > data->len_b / 2)
+			tmp_pos = pos_a + (data->len_b - pos_b);
 		else
+			tmp_pos = pos_a + pos_b;
+		if (best_move[0] > tmp_pos)
 		{
-			pb(data);
-			if (data->b_pile->value <= data->median)
-				rb(data);
-			if (data->b_pile->next)
-			{
-				if ((int)(data->b_pile->value) > (int)(data->b_pile->next->value))
-					sb(data);
-			}
+			best_move[0] = tmp_pos;
+			best_move[1] = ptr_b->value;
+		}
+		pos_b++;
+		ptr_b = ptr_b->next;
+	}
+	return (best_move[1]);
+}
+
+int		do_the_move(t_data *data)
+{
+	int pos_a;
+	int	pos_b;
+	int	best;
+
+	best = get_the_best_pair(data);
+	pos_a = nb_of_strokes(data, &data->a_pile, first_bigger_value(data, &data->a_pile, best));
+	pos_b = nb_of_strokes(data, &data->b_pile, best);
+	while ((data->len_a > pos_a && pos_a > (data->len_a / 2)) || ((data->len_b > pos_b && pos_b > data->len_b / 2)))
+	{
+		if ((data->len_a > pos_a && pos_a > (data->len_a / 2)) && ((data->len_b > pos_b && pos_b > data->len_b / 2)))
+		{
+			pos_a++;
+			pos_b++;
+			rrr(data);
+		}
+		else if (data->len_a > pos_a && pos_a > (data->len_a / 2))
+		{
+			rra(data);
+			pos_a++;
+		}
+		else if (data->len_b > pos_b && pos_b > (data->len_b / 2))
+		{
+			rrb(data);
+			pos_b++;
 		}
 	}
+	while ((pos_a &&  pos_a <= (data->len_a / 2)) || (pos_b &&  pos_b <= (data->len_b / 2)))
+	{
+		if ((pos_a && pos_a <= (data->len_a / 2)) && (pos_b && pos_b <= (data->len_b / 2)))
+		{	
+			rr(data);
+			pos_a--;
+			pos_b--;
+			//printf("pos_a[%i]\n", pos_a);
+			//printf("pos_b[%i]\n", pos_b);
+				//break;
+		
+		}
+		else if (pos_a && pos_a <= (data->len_a / 2))
+		{
+			ra(data);
+			//printf("pos_b[%i]\n", pos_b);
+				//break;
+			pos_a--;
+		}
+		else if (pos_b && pos_b <= (data->len_b / 2))
+		{
+			rb(data);
+			//printf("pos_b[%i]\n", pos_b);
+			//	break;
+			pos_b--;
+		}
+	}
+	return (0);
 }

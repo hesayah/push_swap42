@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:44:13 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 09:24:28 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/13 19:05:15 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@ int	run(t_data *data)
 	pre_working(data);
 	while (data->b_pile)
 	{
-		if ((int)data->a_pile->value < (int)data->b_pile->value)
-			pa(data);
-		else
-			rb(data);
+		do_the_move(data);
+		pa(data);
 	}
+	/*while (!check_order_c(&data->a_pile))
+		rra(data);*/
+	return (1);
 }

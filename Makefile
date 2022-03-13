@@ -6,7 +6,7 @@
 #    By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 10:06:32 by hesayah           #+#    #+#              #
-#    Updated: 2022/03/12 08:45:53 by hesayah          ###   ########.fr        #
+#    Updated: 2022/03/13 19:03:14 by hesayah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME =	push_swap
 
 SRCS =	srcs/main.c \
 		srcs/check_args.c \
+		srcs/pre_working.c \
 		srcs/algo_utils.c \
 		srcs/run.c \
 		srcs/swap.c \
@@ -31,8 +32,6 @@ LIB = libft/libft.a
 CC = gcc
 
 FLAGS = -Wall -Werror -Wextra -g #-fsanitize=address
-
-
 
 all : $(NAME)
 $(NAME):$(OBJS)

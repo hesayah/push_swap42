@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 08:45:24 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/13 19:02:59 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ typedef struct	s_data
 	int			len_a;
 	int			len_b;
 	int			max_value;
+	int			min_value;
 	int			median;
 	int			malloc_error;
 }				t_data;
 
 int				check_args(char **args);
-int				get_median(t_data *data, char **args);
+int				init_work(t_data *data, char **args);
 void			pre_working(t_data *data);
+int				nb_of_strokes(t_data *data, t_lst **lst_pile, int value);
+int				get_the_best_pair(t_data *data);
+int				do_the_move(t_data *data);
 int				run(t_data *data);
 int				check_order_c(t_lst **lst_pile);
 int				check_order_d(t_lst	**lst_pile);

@@ -6,36 +6,11 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 08:48:12 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/13 19:04:43 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-static int	init_work(t_data *data, char **args)
-{
-	int		i;
-	int		value;
-	t_lst	*tmp;
-
-	i = 0;
-	while (args[i])
-	{
-		value = ft_atoi(args[i]);
-		tmp = ft_lstnew(value);
-		if (tmp == NULL)
-		{
-			data->malloc_error = 1;
-			return (0);
-		}
-		ft_lstadd_back(&data->a_pile, tmp);
-		data->len_a++;
-		i++;
-	}
-	if (!get_median(data, args))
-		return (0);
-	return (1);
-}
 
 static void	init_data(t_data *data)
 {
@@ -66,14 +41,14 @@ void	print_pile(t_data *data)
 	printf("------PILE_A----- | -----PILE_B-------\n");
 	while (tmp_a || tmp_b)
 	{
-		if (!tmp_a && !tmp_b)
-			break ;
-		else if (tmp_a && !tmp_b)
-			printf("[%i]-------------- | ----------------[]\n", tmp_a->value);
+		/*if (!tmp_a && !tmp_b)
+			break ;*/
+		if (tmp_a && !tmp_b)
+			printf("[%i]-------------- | ---------------[ ]\n", tmp_a->value);
 		else if (!tmp_a && tmp_b)
-			printf("[]---------------  |  --------------[%i]\n", tmp_b->value);
+			printf("[ ]--------------- | ---------------[%i]\n", tmp_b->value);
 		else if (tmp_a && tmp_b)
-			printf("[%i]-------------  | ---------------[%i]\n",
+			printf("[%i]-------------- | ---------------[%i]\n",
 				tmp_a->value, tmp_b->value);
 		if (tmp_a)	
 			tmp_a = tmp_a->next;
