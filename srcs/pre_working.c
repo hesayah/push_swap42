@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:48:03 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/13 20:28:08 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/16 05:31:03 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ static int	get_median(t_data *data, char **args)
 	}
 	sort_tab(&tmp_tab, data->len_a);
 	if (data->len_a % 2 == 0)
-		data->median = tmp_tab[((data->len_a - 1) / 2)];
+		data->median = tmp_tab[((data->len_a -1) / 2)];
 	else
-		data->median = (int)((tmp_tab[(int)(data->len_a / 2)]
-			+ tmp_tab[(int)((data->len_a + 1) / 2)]) / 2);
+		data->median = (int)(((int)tmp_tab[(int)((data->len_a - 1)/ 2)]
+			+ (int)tmp_tab[(int)((data->len_a - 1) / 2)]) / 2);
 	data->min_value = tmp_tab[0];
 	data->max_value = tmp_tab[data->len_a - 1];
 	free(tmp_tab);
@@ -87,7 +87,7 @@ int	init_work(t_data *data, char **args)
 
 void	pre_working(t_data *data)
 {
-	while (data->len_a > 1)
+	while (data->len_a > 2 || !check_order(&data->a_pile))
 	{
 		if (data->a_pile->value == data->max_value)
 			ra(data);

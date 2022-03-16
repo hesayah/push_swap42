@@ -6,13 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:36:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/13 20:45:51 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/16 05:24:00 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	first_bigger_value(t_data *data, t_lst **lst_pile, int value)
+static int	get_pair(t_data *data, t_lst **lst_pile, int value)
 {
 	t_lst 	*ptr;
 	int		pairing;
@@ -28,8 +28,6 @@ int	first_bigger_value(t_data *data, t_lst **lst_pile, int value)
 		}
 		ptr = ptr->next; 
 	}
-	if (pairing == data->max_value)
-		pairing = value;
 	return (pairing);
 }
 
@@ -40,19 +38,17 @@ int	nb_of_strokes(t_data *data, t_lst **lst_pile, int value)
 
 	nb = 0;
 	lst = *lst_pile;
-	if (!lst->next)
-		return (0);
 	while (lst)
 	{
 		if (lst->value == value)
-			break;
-		lst = lst->next;
+			return (nb);
 		nb++;
+		lst = lst->next;
 	}
 	return (nb);
 }
 
-int	get_the_best_pair(t_data *data)
+static int	get_the_best_pair(t_data *data)
 {
 	int		pos_a;
 	int		pos_b;
@@ -60,23 +56,22 @@ int	get_the_best_pair(t_data *data)
 	int		best_move[2];
 	t_lst	*ptr_b;
 
-	ptr_b = data->b_pile;
 	pos_b = 0;
-	best_move[0] = data->len_b;
+	ptr_b = data->b_pile;
+	best_move[0] = data->len_b -1;
 	best_move[1] = ptr_b->value;
 	while (ptr_b)
 	{
-		pos_a = nb_of_strokes(data, &data->a_pile,
-		first_bigger_value(data, &data->a_pile, ptr_b->value));
-		if (pos_a > data->len_a / 2)
+		pos_a = nb_of_strokes(data, &data->a_pile, get_pair(data, &data->a_pile, ptr_b->value));
+		if (pos_a > (int)(data->len_a / 2))
 			pos_a = data->len_a - pos_a;
-		if (pos_b > data->len_b / 2)
-			tmp_pos = pos_a + (data->len_b - pos_b);
+		if (pos_b > (int)(data->len_b / 2))
+			tmp_pos = pos_a + data->len_b - pos_b;
 		else
 			tmp_pos = pos_a + pos_b;
-		if (best_move[0] > tmp_pos)
+		if (best_move[0] > (int)tmp_pos)
 		{
-			best_move[0] = tmp_pos;
+			best_move[0] = (int)tmp_pos;
 			best_move[1] = ptr_b->value;
 		}
 		pos_b++;
@@ -85,52 +80,94 @@ int	get_the_best_pair(t_data *data)
 	return (best_move[1]);
 }
 
-int		do_the_move(t_data *data)
+/*int		test(t_data *data,int pos_a, int pos_b,  int option)
 {
-	int pos_a;
-	int	pos_b;
-	int	best;
-
-	best = get_the_best_pair(data);
-	pos_a = nb_of_strokes(data, &data->a_pile, first_bigger_value(data, &data->a_pile, best));
-	pos_b = nb_of_strokes(data, &data->b_pile, best);
-	while ((data->len_a > pos_a && pos_a >= (data->len_a / 2)) || ((data->len_b > pos_b && pos_b >= data->len_b / 2)))
+	if (option == 1)
 	{
-		if ((data->len_a > pos_a && pos_a >= (data->len_a / 2)) && ((data->len_b > pos_b && pos_b >= data->len_b / 2)))
+		while ((data->len_a > pos_a && pos_a > (int)(data->len_a / 2)) && (data->len_b > pos_b && pos_b > (int)(data->len_b / 2)))
 		{
 			pos_a++;
 			pos_b++;
 			rrr(data);
 		}
-		else if (data->len_a > pos_a && pos_a >= (data->len_a / 2))
+		while (data->len_a > pos_a && pos_a > (int)(data->len_a / 2))
 		{
 			rra(data);
 			pos_a++;
 		}
-		else if (data->len_b > pos_b && pos_b >= (data->len_b / 2))
+		while (data->len_b > pos_b && pos_b > (int)(data->len_b / 2))
 		{
 			rrb(data);
 			pos_b++;
 		}
 	}
-	while ((pos_a &&  pos_a < (data->len_a / 2)) || (pos_b &&  pos_b < (data->len_b / 2)))
+	else
 	{
-		if ((pos_a && pos_a < (data->len_a / 2)) && (pos_b && pos_b < (data->len_b / 2)))
+		while (pos_a && pos_a < (int)(data->len_a / 2) && pos_b && pos_b <= (int)(data->len_b / 2))
 		{	
 			rr(data);
 			pos_a--;
 			pos_b--;
 		}
-		else if (pos_a && pos_a < (data->len_a / 2))
+		while (pos_a && pos_a <= (int)(data->len_a / 2))
 		{
 			ra(data);
 			pos_a--;
 		}
-		else if (pos_b && pos_b < (data->len_b / 2))
+		while (pos_b && pos_b <= (int)(data->len_b / 2))
 		{
 			rb(data);
 			pos_b--;
 		}
 	}
+}*/
+
+
+
+int		calibrate_pile(t_data *data)
+{
+	int pos_a;
+	int	pos_b;
+	int	best_value;
+
+	best_value = get_the_best_pair(data);
+	pos_a = nb_of_strokes(data, &data->a_pile, get_pair(data, &data->a_pile, best_value));
+	pos_b = nb_of_strokes(data, &data->b_pile, best_value);
+	//test(data, pos_a, pos_b, 1);
+	//test(data, pos_a, pos_b, 0);
+	while ((data->len_a > pos_a && pos_a > (int)(data->len_a / 2)) && (data->len_b > pos_b && pos_b > (int)(data->len_b / 2)))
+	{
+		pos_a++;
+		pos_b++;
+		rrr(data);
+	}
+	while (data->len_a > pos_a && pos_a > (int)(data->len_a / 2))
+	{
+		rra(data);
+		pos_a++;
+	}
+	while (data->len_b > pos_b && pos_b > (int)(data->len_b / 2))
+	{
+		rrb(data);
+		pos_b++;
+	}
+	while (pos_a && pos_a < (int)(data->len_a / 2) && pos_b && pos_b <= (int)(data->len_b / 2))
+	{	
+		rr(data);
+		pos_a--;
+		pos_b--;
+	}
+	while (pos_a && pos_a <= (int)(data->len_a / 2))
+	{
+		ra(data);
+		pos_a--;
+	}
+	while (pos_b && pos_b <= (int)(data->len_b / 2))
+	{
+		rb(data);
+		pos_b--;
+	}
+	pa(data);
+	//print_pile(data);
 	return (0);
 }

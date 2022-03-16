@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/13 20:19:51 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/16 04:41:12 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,38 +23,6 @@ static void	init_data(t_data *data)
 	data->max_value = 0;
 	data->len_b = 0;
 	data->malloc_error = 0;
-}
-
-void	print_pile(t_data *data)
-{
-	t_lst	*tmp_a;
-	t_lst	*tmp_b;
-
-	if (data->a_pile)
-		tmp_a = data->a_pile;
-	else
-		tmp_a = NULL;
-	if (data->b_pile)
-		tmp_b = data->b_pile;
-	else
-		tmp_b = NULL;
-	printf("------PILE_A----- | -----PILE_B-------\n");
-	while (tmp_a || tmp_b)
-	{
-		/*if (!tmp_a && !tmp_b)
-			break ;*/
-		if (tmp_a && !tmp_b)
-			printf("[%i]-------------- | ---------------[ ]\n", tmp_a->value);
-		else if (!tmp_a && tmp_b)
-			printf("[ ]--------------- | ---------------[%i]\n", tmp_b->value);
-		else if (tmp_a && tmp_b)
-			printf("[%i]-------------- | ---------------[%i]\n",
-				tmp_a->value, tmp_b->value);
-		if (tmp_a)	
-			tmp_a = tmp_a->next;
-		if (tmp_b)
-			tmp_b = tmp_b->next;
-	}
 }
 
 static int	free_args(char ***args, t_data *data)

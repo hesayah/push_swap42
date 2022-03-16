@@ -6,13 +6,13 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:44:13 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/13 20:23:01 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/16 05:01:08 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	check_order(t_lst **lst_pile)
+int	check_order(t_lst **lst_pile)
 {
 	t_lst	*tmp_one;
 	int		value;
@@ -31,15 +31,19 @@ static int	check_order(t_lst **lst_pile)
 
 int	run(t_data *data)
 {
+	int	nb_strokes;
+
 	if (check_order(&data->a_pile))
 		return (0);
 	pre_working(data);
 	while (data->b_pile)
-	{
-		do_the_move(data);
-		pa(data);
-	}
-	/*while (!check_order_c(&data->a_pile))
-		rra(data);*/
+		calibrate_pile(data);
+	nb_strokes = nb_of_strokes(data, &data->a_pile, data->min_value);
+	if (nb_strokes < (int)(data->len_a / 2))
+			while (!check_order(&data->a_pile))
+				ra(data);
+	else
+		while (!check_order(&data->a_pile))
+			rra(data);
 	return(clean_up(data));
 }
