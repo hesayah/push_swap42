@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:44:13 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/16 05:01:08 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/16 23:58:43 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@ int	run(t_data *data)
 		return (0);
 	pre_working(data);
 	while (data->b_pile)
+	{
 		calibrate_pile(data);
+		pa(data);
+	}
 	nb_strokes = nb_of_strokes(data, &data->a_pile, data->min_value);
 	if (nb_strokes < (int)(data->len_a / 2))
-			while (!check_order(&data->a_pile))
-				ra(data);
+		while (!check_order(&data->a_pile))
+			ra(data);
 	else
 		while (!check_order(&data->a_pile))
 			rra(data);
-	return(clean_up(data));
+	return (clean_up(data));
 }

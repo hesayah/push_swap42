@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:48:03 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/16 05:31:03 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/16 23:18:10 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	sort_tab(int **tab, int len)
 {
-	int i;
+	int	i;
 	int	j;
-	int value;
+	int	value;
 
 	i = -1;
 	while (++i < len)
@@ -37,7 +37,7 @@ static void	sort_tab(int **tab, int len)
 static int	get_median(t_data *data, char **args)
 {
 	int	i;
-	int *tmp_tab;
+	int	*tmp_tab;
 
 	tmp_tab = malloc(sizeof(int) * data->len_a);
 	if (!tmp_tab)
@@ -52,8 +52,8 @@ static int	get_median(t_data *data, char **args)
 	if (data->len_a % 2 == 0)
 		data->median = tmp_tab[((data->len_a -1) / 2)];
 	else
-		data->median = (int)(((int)tmp_tab[(int)((data->len_a - 1)/ 2)]
-			+ (int)tmp_tab[(int)((data->len_a - 1) / 2)]) / 2);
+		data->median = (int)(((int)tmp_tab[(int)((data->len_a - 1) / 2)]
+					+ (int)tmp_tab[(int)((data->len_a - 1) / 2)]) / 2);
 	data->min_value = tmp_tab[0];
 	data->max_value = tmp_tab[data->len_a - 1];
 	free(tmp_tab);

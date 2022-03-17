@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 02:47:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/12 05:48:30 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:18:50 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 static int	check_arg_value(char *arg)
 {
-	int	i;
-	int	value;
+	int		i;
+	long	value;
 
-	value = ft_atoi(arg);
-	if (value < INT_MIN || value > INT_MAX)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
-	}
 	i = 0;
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
@@ -34,6 +28,25 @@ static int	check_arg_value(char *arg)
 			return (0);
 		}
 		i++;
+	}
+	value = ft_atoi(arg);
+	if (value < INT_MIN || value > INT_MAX)
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (0);
+	}
+	return (1);
+}
+
+static int	loop_checker(char **args, int *value_one, int *value_two, int j)
+{
+	if (!check_arg_value(args[j]))
+		return (0);
+	(*value_two) = ft_atoi(args[j]);
+	if ((*value_one) == (*value_two))
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (0);
 	}
 	return (1);
 }
@@ -59,14 +72,8 @@ int	check_args(char **args)
 		value_one = ft_atoi(args[i]);
 		while (args[++j])
 		{
-			if (!check_arg_value(args[j]))
+			if (!loop_checker(args, &value_one, &value_two, j))
 				return (0);
-			value_two = ft_atoi(args[j]);
-			if (value_one == value_two)
-			{
-				ft_putstr_fd("Error\n", 2);
-				return (0);
-			}
 		}
 	}
 	return (1);

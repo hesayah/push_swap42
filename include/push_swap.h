@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/16 05:00:55 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:12:30 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "limits.h"
 # include "../libft/libft.h"
 
-typedef struct	s_data
-{	
+typedef struct s_data
+{
 	t_lst		*a_pile;
 	t_lst		*b_pile;
 	int			len_a;
@@ -30,12 +30,13 @@ typedef struct	s_data
 
 int				check_args(char **args);
 int				init_work(t_data *data, char **args);
-void			pre_working(t_data *data);
-int				calibrate_pile(t_data *data);
-int				nb_of_strokes(t_data *data, t_lst **lst_pile, int value);
-int				check_order(t_lst **lst_pile);
 int				run(t_data *data);
-void			print_pile(t_data *data);
+int				check_order(t_lst **lst_pile);
+void			pre_working(t_data *data);
+void			calibrate_pile(t_data *data);
+int				get_the_best_pair(t_data *data);
+int				get_pair(t_data *data, t_lst **lst_pile, int value);
+int				nb_of_strokes(t_data *data, t_lst **lst_pile, int value);
 void			pa(t_data *data);
 void			pb(t_data *data);
 void			sa(t_data *data);

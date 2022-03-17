@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/16 04:41:12 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:20:22 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,40 @@ static int	free_args(char ***args, t_data *data)
 	return (0);
 }
 
+static int	one_input_args(char **args, t_data *data)
+{
+	char	**new_args;
+
+	new_args = ft_split(args[1], " ");
+	if (!new_args)
+		return (0);
+	if (new_args[0] == NULL)
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (free_args(&new_args, NULL));
+	}
+	if (!check_args(new_args))
+		return (free_args(&new_args, NULL));
+	if (!init_work(data, new_args))
+		return (free_args(&new_args, data));
+	ft_free(new_args);
+	return (1);
+}
+
 int	main(int argc, char **args)
 {
-	t_data	data;
 	char	**new_args;
+	t_data	data;
 
 	init_data(&data);
 	if (argc < 2)
 		return (0);
 	else if (argc == 2)
 	{
-		new_args = ft_split(args[1], " ");
-		if (new_args[0] == NULL)
-		{
-			ft_putstr_fd("Error\n", 2);
-			return (free_args(&new_args, NULL));
-		}
-		if (!check_args(new_args))
-			return (free_args(&new_args, NULL));
-		if (!init_work(&data, new_args))
-			return (free_args(&new_args, &data));
-		ft_free(new_args);
+		if (!one_input_args(args, &data))
+			return (0);
 	}
-	else 
+	else
 	{
 		new_args = ++args;
 		if (!check_args(new_args))
