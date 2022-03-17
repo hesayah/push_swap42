@@ -6,7 +6,7 @@
 #    By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/15 17:19:07 by hesayah           #+#    #+#              #
-#    Updated: 2021/12/11 05:33:26 by hesayah          ###   ########.fr        #
+#    Updated: 2022/03/17 16:54:47 by hesayah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(GCC) $(FLAGS) -c $(SRCS) $(INCLUDE)
-	@ar -rc $(NAME) $^
-	@ranlib $(NAME)
+	@ar -rc $(NAME) $(OBJ)
 	@echo "\033[32m[Success :D !]"
 	
 clean:

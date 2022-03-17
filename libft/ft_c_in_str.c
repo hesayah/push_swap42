@@ -25,3 +25,4 @@ int	ft_c_in_str(char c, char *s2)
 	}
 	return (1);
 }
+
