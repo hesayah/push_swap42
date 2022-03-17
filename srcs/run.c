@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:44:13 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/16 23:58:43 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:31:02 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	run(t_data *data)
 	int	nb_strokes;
 
 	if (check_order(&data->a_pile))
-		return (0);
+		return (clean_up(data));
 	pre_working(data);
 	while (data->b_pile)
 	{
