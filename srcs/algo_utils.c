@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:36:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 03:12:59 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:38:48 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	nb_of_strokes(t_data *data, t_lst **lst_pile, int value)
 static void	calculate_best_value(t_data *data, t_lst *ptr_b,
 		int pos_b, int *best_value)
 {
-	int	pos_a;
-	int	pos_value;
-	int	best_pos_value;
+	int		pos_a;
+	int		pos_value;
+	int		best_pos_value;
 
 	best_pos_value = data->len_b;
 	while (ptr_b)
@@ -78,9 +78,9 @@ static void	calculate_best_value(t_data *data, t_lst *ptr_b,
 
 int	get_the_best_pair(t_data *data)
 {
-	int		pos_b;
-	int		best_value;
-	t_lst	*ptr_b;
+	int			pos_b;
+	int			best_value;
+	t_lst		*ptr_b;
 
 	pos_b = 0;
 	ptr_b = data->b_pile;

@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 00:00:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 10:23:24 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:39:49 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ static void	do_rotate_up(t_data *data, int pos_a, int pos_b)
 
 void	calibrate_pile(t_data *data)
 {
-	int	pos_a;
-	int	pos_b;
-	int	value_a;
-	int	best_value;
+	int		pos_a;
+	int		pos_b;
+	int		value_a;
+	int		best_value;
 
 	best_value = get_the_best_pair(data);
 	value_a = get_pair(data, &data->a_pile, best_value);

@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:31:36 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 03:20:22 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 19:49:24 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static void	init_data(t_data *data)
 {
-	int	i;
-
-	i = 0;
 	data->a_pile = NULL;
 	data->b_pile = NULL;
 	data->len_a = 0;
@@ -42,10 +39,7 @@ static int	one_input_args(char **args, t_data *data)
 	if (!new_args)
 		return (0);
 	if (new_args[0] == NULL)
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (free_args(&new_args, NULL));
-	}
 	if (!check_args(new_args))
 		return (free_args(&new_args, NULL));
 	if (!init_work(data, new_args))

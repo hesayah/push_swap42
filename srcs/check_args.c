@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 02:47:40 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 03:18:50 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:39:14 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	check_arg_value(char *arg)
 	long	value;
 
 	i = 0;
-	if (arg[i] == '-' || arg[i] == '+')
+	if ((arg[i] == '-' || arg[i] == '+') && arg[i + 1])
 		i++;
 	while (arg[i])
 	{
@@ -53,10 +53,10 @@ static int	loop_checker(char **args, int *value_one, int *value_two, int j)
 
 int	check_args(char **args)
 {
-	int	i;
-	int	j;
-	int	value_one;
-	int	value_two;
+	int		i;
+	int		j;
+	int		value_one;
+	int		value_two;
 
 	i = -1;
 	while (args[++i])

@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:15:41 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/11 14:14:32 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 19:39:24 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_lst
 {
-	int				value;
+	long			value;
 	struct s_lst	*next;
 }					t_lst;
 

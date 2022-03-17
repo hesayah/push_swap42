@@ -6,7 +6,7 @@
 #    By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 10:06:32 by hesayah           #+#    #+#              #
-#    Updated: 2022/03/17 16:57:18 by hesayah          ###   ########.fr        #
+#    Updated: 2022/03/17 17:09:53 by hesayah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,17 +57,17 @@ LIB = libft/libft.a
 
 CC = gcc
 
-FLAGS = -Wall -Werror -Wextra -g #-fsanitize=address
+FLAGS = -Wall -Werror -Wextra #-g -fsanitize=address
 
 all : $(NAME)
-	$(MAKE) -C $(LIBFT_PATH)
 $(NAME):$(OBJS)
+	$(MAKE) -C $(LIBFT_PATH)
 	$(CC) -o $(NAME) $(OBJS) $(FLAGS) $(LIB)
 	@echo "\033[32m[Job done ;)!]"
 
 bonus : $(NAME_BONUS)
-	$(MAKE) -C $(LIBFT_PATH)
 $(NAME_BONUS):$(OBJS_BONUS)
+	$(MAKE) -C $(LIBFT_PATH)
 	$(CC) -o $(NAME_BONUS) $(OBJS_BONUS) $(FLAGS) $(LIB)
 	@echo "\033[32m[Cheker done ;)!]"
 

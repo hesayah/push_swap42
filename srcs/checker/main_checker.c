@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:30:31 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 14:35:28 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:36:31 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static void	init_data(t_data *data)
 {
-	int	i;
-
-	i = 0;
 	data->a_pile = NULL;
 	data->b_pile = NULL;
 	data->len_a = 0;

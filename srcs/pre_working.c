@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:48:03 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 11:54:18 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:38:38 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	sort_tab(int **tab, int len)
 {
-	int	i;
-	int	j;
-	int	value;
+	int		i;
+	int		j;
+	int		value;
 
 	i = -1;
 	while (++i < len)
@@ -36,8 +36,8 @@ static void	sort_tab(int **tab, int len)
 
 static int	get_median(t_data *data, char **args)
 {
-	int	i;
-	int	*tmp_tab;
+	int		i;
+	int		*tmp_tab;
 
 	tmp_tab = malloc(sizeof(int) * data->len_a);
 	if (!tmp_tab)
