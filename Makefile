@@ -6,7 +6,7 @@
 #    By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 10:06:32 by hesayah           #+#    #+#              #
-#    Updated: 2022/03/17 03:12:03 by hesayah          ###   ########.fr        #
+#    Updated: 2022/03/17 04:44:39 by hesayah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME =	push_swap
 
 SRCS =	srcs/main.c \
 		srcs/check_args.c \
+		srcs/little_algo.c \
 		srcs/pre_working.c \
 		srcs/algo_utils.c \
 		srcs/calibration.c \

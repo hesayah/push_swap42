@@ -6,4 +6,5 @@ valgrind \
 	--show-reachable=yes \
 	--track-origins=yes \
 	--log-file=valerr \
+	--supprimate=readline
 	"$@"

@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:44:13 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 03:31:02 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 10:19:23 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	run(t_data *data)
 
 	if (check_order(&data->a_pile))
 		return (clean_up(data));
+	if (data->len_a <= 5)
+		return (little_algo(data));
 	pre_working(data);
 	while (data->b_pile)
 	{

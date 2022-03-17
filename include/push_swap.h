@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 03:12:30 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 04:45:18 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int				check_args(char **args);
 int				init_work(t_data *data, char **args);
 int				run(t_data *data);
 int				check_order(t_lst **lst_pile);
+int				little_algo(t_data *data);
 void			pre_working(t_data *data);
 void			calibrate_pile(t_data *data);
 int				get_the_best_pair(t_data *data);
