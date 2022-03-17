@@ -6,7 +6,7 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 10:25:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 04:45:18 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 13:19:00 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "limits.h"
+# include "unistd.h"
 # include "../libft/libft.h"
 
 typedef struct s_data

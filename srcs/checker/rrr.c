@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_down.c                                      :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 00:39:24 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 14:45:52 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 15:02:14 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/checker.h"
 
 static void	rotate_down(t_lst **lst_pile, t_data *data)
 {
@@ -35,30 +35,23 @@ static void	rotate_down(t_lst **lst_pile, t_data *data)
 	ft_lstadd_front(lst_pile, new);
 }
 
-void	rra(t_data *data)
+void	rra_checker(t_data *data)
 {
 	if (data->a_pile)
-	{
 		rotate_down(&data->a_pile, data);
-		ft_putstr_fd("rra\n", 1);
-	}
 }
 
-void	rrb(t_data *data)
+void	rrb_checker(t_data *data)
 {
 	if (data->b_pile)
-	{
 		rotate_down(&data->b_pile, data);
-		ft_putstr_fd("rrb\n", 1);
-	}
 }
 
-void	rrr(t_data *data)
+void	rrr_checker(t_data *data)
 {
 	if (data->a_pile && data->b_pile)
 	{
 		rotate_down(&data->a_pile, data);
 		rotate_down(&data->b_pile, data);
-		ft_putstr_fd("rrr\n", 1);
 	}
 }

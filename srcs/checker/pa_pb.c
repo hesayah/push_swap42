@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   pa_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 14:50:07 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 14:46:00 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 15:01:40 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/checker.h"
 
 static	void	lst_delet_first(t_lst **lst, int code, t_data *data)
 {
@@ -51,24 +51,22 @@ static void	push(t_lst **lst_one, t_lst **lst_two, int code, t_data *data)
 	lst_delet_first(lst_two, code, data);
 }
 
-void	pa(t_data *data)
+void	pa_checker(t_data *data)
 {
 	if (data->b_pile != NULL)
 	{
 		push(&data->a_pile, &data->b_pile, 0, data);
 		data->len_a++;
 		data->len_b--;
-		ft_putstr_fd("pa\n", 1);
 	}
 }
 
-void	pb(t_data *data)
+void	pb_checker(t_data *data)
 {
 	if (data->a_pile != NULL)
 	{
 		push(&data->b_pile, &data->a_pile, 1, data);
 		data->len_a--;
 		data->len_b++;
-		ft_putstr_fd("pb\n", 1);
 	}
 }
