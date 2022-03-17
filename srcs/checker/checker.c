@@ -6,39 +6,37 @@
 /*   By: hesayah <hesayah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:14:46 by hesayah           #+#    #+#             */
-/*   Updated: 2022/03/17 15:15:45 by hesayah          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:08:40 by hesayah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/checker.h"
 
-static int	do_move(t_data *data, char *input)
+static void	do_move(t_data *data, char **input)
 {
-	if (ft_strncmp("pa", input, ft_strlen(input)) == 0)
+	if (ft_strncmp("pa", *input, 3) == 0)
 		pa_checker(data);
-	else if (ft_strncmp("pb", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("pb", *input, 3) == 0)
 		pb_checker(data);
-	else if (ft_strncmp("sa", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("sa", *input, 3) == 0)
 		sa_checker(data);
-	else if (ft_strncmp("sb", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("sb", *input, 3) == 0)
 		sb_checker(data);
-	else if (ft_strncmp("ss", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("ss", *input, 3) == 0)
 		ss_checker(data);
-	else if (ft_strncmp("ra", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("ra", *input, 3) == 0)
 		ra_checker(data);
-	else if (ft_strncmp("rb", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("rb", *input, 3) == 0)
 		rb_checker(data);
-	else if (ft_strncmp("rr", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("rr", *input, 3) == 0)
 		rr_checker(data);
-	else if (ft_strncmp("rra", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("rra", *input, 4) == 0)
 		rra_checker(data);
-	else if (ft_strncmp("rrb", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("rrb", *input, 4) == 0)
 		rrb_checker(data);
-	else if (ft_strncmp("rrr", input, ft_strlen(input)) == 0)
+	else if (ft_strncmp("rrr", *input, 4) == 0)
 		rrr_checker(data);
-	else
-		return (0);
-	return (1);
+	free(*input);
 }
 
 int	checker(t_data *data)
@@ -52,17 +50,12 @@ int	checker(t_data *data)
 	{
 		ret = get_next_line(0, &input);
 		if (input[0] == '\0')
-			break ;
-		if (!do_move(data, input))
 		{
-			ft_putstr_fd("Error\n", 2);
 			free(input);
-			return (clean_up(data));
+			break ;
 		}
-		free(input);
+		do_move(data, &input);
 	}
-	if (ret == -1)
-		return (clean_up(data));
 	if (check_order(&data->a_pile))
 		ft_putstr_fd("ok\n", 1);
 	else
